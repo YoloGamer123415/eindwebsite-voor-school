@@ -1,0 +1,458 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+@media only screen and (min-width: 900px) {
+    html::-webkit-scrollbar {
+        background-color: transparent;
+        width: 7px;
+    }
+
+    html::-webkit-scrollbar-button {
+        height: 0;
+    }
+    
+    html::-webkit-scrollbar-thumb {
+        background-color: #626262;
+        border-radius: 100px;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1, h2,
+h3, h4,
+h5, h6 {
+    line-height: 100%;
+}
+
+*:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+    line-height: 24px;
+}
+
+html,
+body {
+    overflow-x: hidden !important;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+}
+
+header {
+    width: 100vw;
+    height: 80px;
+    font-size: 125%;
+    background-color: #252525;
+    z-index: 100;
+}
+
+header nav#small {
+    color: #ffffff;
+    height: 80px;
+}
+
+header nav#small div.home {
+    float: left;
+    height: 100%;
+    width: 80px;
+}
+
+header nav#small div.home a {
+    color: #ffffff;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header nav#small div.home a svg {
+    width: 60px;
+    height: 60px;
+}
+
+header nav#small div {
+    float: right;
+    height: 100%;
+    width: 80px;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header nav#small div svg {
+    width: 60px;
+    height: 60px;
+}
+
+menu {
+    position: fixed;
+    top: 0;
+    right: -90%;
+    width: 90%;
+    height: 100%;
+    background-color: #252525ea;
+    color: #ffffff;
+    font-size: 110%;
+    transition: right .3s ease;
+    z-index: 101;
+}
+
+menu.show {
+    right: 0;
+    transition: right .3s ease;
+}
+
+menu div {
+    position: absolute;
+    right: 0;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+menu div::after {
+    content: '';
+    background-color: #d82927;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    margin: -12.5px;
+    top: 50%;
+    left: 50%;
+}
+
+menu div svg {
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+menu a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    width: calc(100% - 2 * (16px));
+    padding: 7.5px 16px;
+}
+
+menu a.selected {
+    text-decoration: underline #5083e8;
+}
+
+menu a:first-of-type {
+    margin-top: 25px;
+}
+
+menu a:not(:first-of-type) {
+    border-top: 1px solid #9e9e9e;
+}
+
+header nav#big {
+    display: none;
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+header nav#big ul {
+    width: 1000px;
+    height: 100%;
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: repeat(5, calc(100% / 5));
+    list-style-type: none;
+}
+
+header nav#big li {
+    list-style-type: none;
+    position: relative;
+}
+
+header nav#big li a::after {
+    content: '';
+    width: 0px;
+    height: 5px;
+    position: absolute;
+    bottom: 0;
+    background-color: #5083e8;
+    transition: width .4s ease;
+}
+
+header nav#big li a.selected::after,
+header nav#big li a:hover::after {
+    width: 100%;
+    transition: width .4s ease;
+}
+
+header nav#big a {
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+@media only screen and (min-width: 1000px) {
+    header nav#small {
+        display: none;
+    }
+
+    header nav#big {
+        display: flex;
+        display: -webkit-flex;
+    }
+}
+
+div#scrolltop {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 100%;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+div#scrolltop::after {
+    content: '';
+    background-color: #ffffff;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -20px;
+    z-index: -1;
+}
+
+div#scrolltop svg {
+    width: 100%;
+    height: 100%;
+    color: #5083e8;
+}
+
+div.landing-page {
+    height: calc(100vh - 80.5px);
+    background: rgba(80,131,232,1);
+    background: -moz-linear-gradient(top, rgba(80,131,232,1) 0%, rgba(37,37,37,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(80,131,232,1)), color-stop(100%, rgba(37,37,37,1)));
+    background: -webkit-linear-gradient(top, rgba(80,131,232,1) 0%, rgba(37,37,37,1) 100%);
+    background: -o-linear-gradient(top, rgba(80,131,232,1) 0%, rgba(37,37,37,1) 100%);
+    background: -ms-linear-gradient(top, rgba(80,131,232,1) 0%, rgba(37,37,37,1) 100%);
+    background: linear-gradient(to bottom, rgba(80,131,232,1) 0%, rgba(37,37,37,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5083e8', endColorstr='#252525', GradientType=0 );
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.landing-page section {
+    text-align: center;
+    color: #ffffff;
+}
+
+div.landing-page section h1 {
+    margin-bottom: 10px;
+    font-size: 300%;
+}
+
+div.landing-page section p {
+    font-size: 150%;
+}
+
+div#add-discord {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    font-size: 125%;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 1000;
+}
+
+div#add-discord span {
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    border-radius: 100%;
+    z-index: 10;
+}
+
+div#add-discord span::after {
+    content: '';
+    background-color: #d82927;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -12.5px;
+    z-index: -1;
+}
+
+div#add-discord span svg {
+    color: #ffffff;
+    transition: color .3s ease;
+}
+
+div#add-discord span svg:hover {
+    color: #cfcfcf;
+    transition: color .3s ease;
+}
+
+div#add-discord div {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin: -50px -150px;
+    width: 300px;
+    height: 100px;
+    background-color: #5083e8;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.25);
+    box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.25);
+    border-radius: 5px;
+}
+
+div#add-discord div p {
+    text-align: center;
+}
+
+main {
+    min-height: 100vh;
+}
+
+div.container {
+    width: calc(100% - 2 * (5px));
+    margin: 0 auto;
+    padding: 10px 5px;
+}
+
+@media only screen and (min-width: 600px) {
+    div.container {
+        width: 500px;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    div.container {
+        width: 800px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    div.container {
+        width: 900px;
+    }
+}
+
+main.adjust {
+    padding-top: 80px;
+}
+
+footer {
+    width: 100%;
+    background-color: #5083e8;
+    font-size: 110%;
+    color: #ffffff;
+}
+
+footer div.top {
+    padding: 5px 0;
+}
+
+footer div.info {
+    width: calc(100% - 2 * (10px));
+    padding: 0 10px;
+}
+
+footer div.social {
+    width: calc(100% - 2 * (10px));
+    padding: 0 10px;
+    text-align: center;
+}
+
+footer div.social div {
+    width: 100%;
+    padding: 15px 0;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer div.social div a {
+    cursor: pointer;
+}
+
+footer div.social div a:not(:first-of-type) {
+    margin-left: 20px;
+}
+
+footer div.social div a svg {
+    height: 60px;
+    color: #ffffff;
+    transition: color .3s ease;
+}
+
+footer div.social div a svg:hover {
+    color: #b2c4e8;
+    transition: color .3s ease;
+}
+
+@media only screen and (min-width: 900px) {
+    footer div.info {
+        width: calc(50% - 2 * (10px));
+        float: left;
+    }
+
+    footer div.social {
+        width: calc(50% - 2 * (10px));
+        float: right;
+    }
+}
+
+footer div.bottom {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0, .1);
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+}
