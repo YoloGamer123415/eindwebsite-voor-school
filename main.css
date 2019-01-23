@@ -29,7 +29,7 @@ h5, h6 {
 }
 
 main *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-    line-height: 24px;
+    line-height: 25px;
     font-size: 17px;
 }
 
@@ -236,28 +236,31 @@ div#scrolltop {
     transition:
         transform .3s ease,
         box-shadow .3s ease;
+    z-index: 1000;
 }
 
-div#scrolltop:hover {
-    transform: translateY(-5px);
-    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
-    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
-    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease;
+@media only screen and (min-width: 900px) {
+    div#scrolltop:hover {
+        transform: translateY(-5px);
+        -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
+        -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
+        box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
+        transition:
+            transform .3s ease,
+            box-shadow .3s ease;
+    }
 }
 
 div#scrolltop::after {
     content: '';
     background-color: #ffffff;
     border-radius: 100%;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -15px;
+    margin: -17.5px;
     z-index: -1;
 }
 
@@ -481,11 +484,13 @@ div.container {
 a,
 a:visited {
     color: #5083e8;
+    transition: color .3s ease;
 }
 
 @media only screen and (min-width: 900px) {
     a:hover {
         color: #134cbe;
+        transition: color .3s ease;
     }
 }
 
@@ -580,6 +585,40 @@ footer {
 
 footer div.top {
     padding: 5px 0;
+}
+
+footer div.top ul {
+    display: block;
+    list-style-type: none;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+footer div.top li {
+    display: list-item;
+    padding-left: 1.3em;
+}
+
+footer div.top li::before {
+    content: '>';
+    display: inline-block;
+    margin-left: -1.3em;
+    width: 1.3em;
+    font-weight: bold;
+}
+
+footer div.top a,
+footer div.top a:visited {
+    color: #ffffff;
+    transition: color .3s ease;
+}
+
+@media only screen and (min-width: 900px) {
+    footer div.top a:hover {
+        color: #b2c4e8;
+        transition: color .3s ease;
+    }
 }
 
 footer div.info {
