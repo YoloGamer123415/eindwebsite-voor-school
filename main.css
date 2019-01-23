@@ -2,7 +2,7 @@
 
 @media only screen and (min-width: 900px) {
     html::-webkit-scrollbar {
-        background-color: transparent;
+        background-color: #ffffff;
         width: 7px;
     }
 
@@ -28,8 +28,9 @@ h5, h6 {
     line-height: 100%;
 }
 
-*:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+main *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
     line-height: 24px;
+    font-size: 17px;
 }
 
 html,
@@ -48,6 +49,9 @@ header {
     font-size: 125%;
     background-color: #252525;
     z-index: 100;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
 }
 
 header nav#small {
@@ -55,28 +59,24 @@ header nav#small {
     height: 80px;
 }
 
-header nav#small div.home {
+header div.info {
     float: left;
+    width: calc(100% - 80px - 2 * (20px));
     height: 100%;
-    width: 80px;
-}
-
-header nav#small div.home a {
-    color: #ffffff;
-    height: 100%;
-    width: 100%;
     display: flex;
     display: -webkit-flex;
     align-items: center;
-    justify-content: center;
+    padding: 0 20px;
+    font-weight: bold;
+    font-size: 110%;
 }
 
-header nav#small div.home a svg {
-    width: 60px;
-    height: 60px;
+header div.info a {
+    color: #ffffff;
+    text-decoration-color: #5083e8;
 }
 
-header nav#small div {
+header nav#small div#open {
     float: right;
     height: 100%;
     width: 80px;
@@ -86,7 +86,7 @@ header nav#small div {
     justify-content: center;
 }
 
-header nav#small div svg {
+header nav#small div#open svg {
     width: 60px;
     height: 60px;
 }
@@ -232,18 +232,32 @@ div#scrolltop {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transform: translateY(0px);
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+div#scrolltop:hover {
+    transform: translateY(-5px);
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
 div#scrolltop::after {
     content: '';
     background-color: #ffffff;
     border-radius: 100%;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -20px;
+    margin: -15px;
     z-index: -1;
 }
 
@@ -353,14 +367,86 @@ div#add-discord div p {
     text-align: center;
 }
 
+div#viewImage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 1000;
+    display: grid;
+    grid-template:
+        'img' auto
+        'desc' 65px
+        / 100%;
+}
+
+div#viewImage span#c {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    color: #ffffff;
+    border-radius: 100%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+div#viewImage span#c::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-color: #d82927;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 100%;
+    margin: -15px;
+    z-index: -1;
+    transform: translateY(0px);
+    transition: transform .3s ease;
+}
+
+div#viewImage span#c:hover::after {
+    transform: translateY(-3px);
+    transition: transform .3s ease;
+}
+
+div#viewImage span#i {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+div#viewImage span#i img {
+    max-width: 95%;
+    max-height: 95%;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+}
+
+div#viewImage span#d {
+    background-color: #252525;
+    color: #ffffff;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 110%;
+}
+
 main {
     min-height: 100vh;
 }
 
 div.container {
-    width: calc(100% - 2 * (5px));
+    width: calc(100% - 2 * (7.5px));
     margin: 0 auto;
-    padding: 10px 5px;
+    padding: 10px 7.5px;
 }
 
 @media only screen and (min-width: 600px) {
@@ -381,8 +467,97 @@ div.container {
     }
 }
 
+a,
+a:visited {
+    color: #5083e8;
+}
+
+@media only screen and (min-width: 900px) {
+    a:hover {
+        color: #134cbe;
+    }
+}
+
+div.image {
+    position: relative;
+    width: 100%;
+}
+
+div.image,
+div.image.left {
+    float: left;
+    margin: 0 5px 0 0;
+}
+
+div.image.right {
+    float: right;
+    margin: 0 0 0 5px;
+}
+
+div.image > span {
+    position: absolute;
+    background-color: #252525;
+    color: #ffffff;
+    padding: 6px 12px;
+    width: calc(100% - 2 * (12px));
+}
+
+div.image > span,
+div.image > span.bottom {
+    bottom: 0;
+    top: auto;
+    border-radius: 0 0 5px 5px;
+}
+
+div.image > span.top {
+    bottom: auto;
+    top: 0;
+    border-radius: 5px 5px 0 0;
+}
+
+div.image img {
+    width: 100%;
+    border-radius: 5px;
+    cursor: zoom-in;
+    cursor: -webkit-zoom-in;
+}
+
 main.adjust {
     padding-top: 80px;
+}
+
+@media only screen and (min-width: 900px) {
+    div.image {
+        max-width: 65%;
+    }
+
+    div.image > span {
+        width: auto;
+    }
+
+    div.image > span,
+    div.image > span.bottom {
+        bottom: 5%;
+        top: auto;
+    }
+
+    div.image > span.top {
+        bottom: auto;
+        top: 5%;
+    }
+
+    div.image > span,
+    div.image > span.left {
+        left: 0;
+        right: auto;
+        border-radius: 0 5px 5px 0 !important;
+    }
+
+    div.image > span.right {
+        left: auto;
+        right: 0;
+        border-radius: 5px 0 0 5px !important;
+    }
 }
 
 footer {
