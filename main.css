@@ -141,7 +141,7 @@ menu div svg {
 
 menu a {
     display: block;
-    color: #ffffff;
+    color: #ffffff !important;
     text-decoration: none;
     width: calc(100% - 2 * (16px));
     padding: 7.5px 16px;
@@ -378,8 +378,17 @@ div#viewImage {
     display: grid;
     grid-template:
         'img' auto
+        'desc' 100px
+        / 100%;
+}
+
+@media only screen and (min-width: 900px) {
+    div#viewImage {
+    grid-template:
+        'img' auto
         'desc' 65px
         / 100%;
+    }
 }
 
 div#viewImage span#c {
@@ -436,6 +445,8 @@ div#viewImage span#d {
     display: -webkit-flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    overflow: hidden;
     font-size: 110%;
 }
 

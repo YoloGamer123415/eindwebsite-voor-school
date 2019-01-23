@@ -85,9 +85,9 @@ const viewImage = (imagePath, description) => {
     const c = document.getElementById('c')
 
     i.innerHTML = `<img src="${imagePath}" alt="${description}">`
-    d.innerHTML = description.toString()
+    d.innerHTML = `<div class="container">${description.toString()
         .replace('<script', '&lt;nein')
-        .replace('</script', '&lt;/nein')
+        .replace('</script', '&lt;/nein')}</div>`
     v.style.display = 'grid'
     disableScroll()
     c.onclick = e => {
