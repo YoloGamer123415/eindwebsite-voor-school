@@ -39,7 +39,7 @@
     document.getElementById('close-dc').onclick = e => { e.preventDefault();document.getElementById('add-discord').style.display='none' }
 })()
 
-const viewImage = (imagePath, description) => {
+const viewImage = (imagePath, description, disableScrolling = false) => {
     /**
      * Niet van mij:
      * https://stackoverflow.com/a/4770179
@@ -89,7 +89,8 @@ const viewImage = (imagePath, description) => {
         .replace('<script', '&lt;nein')
         .replace('</script', '&lt;/nein')}</div>`
     v.style.display = 'grid'
-    disableScroll()
+    if (disableScrolling)
+        disableScroll()
     c.onclick = e => {
         e.preventDefault()
         document.getElementById('viewImage').style.display = 'none'

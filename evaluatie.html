@@ -68,18 +68,19 @@
         <div class="container">
             <div class="text">
                 <p>
-                    Voordat ik ga vertellen wat er allemaal goed en fout ging wil ik even vertellen dat ik nu een jaar programeer. Ik was begonnen met HTML, CSS en JavaScript (wat ik nu trouwens nog steeds doe), waardoor ik dit nu al best redelijk kan (vind ik dan). Ik ben op dit moment bezig met een redelijk groot project, al zeg ik het zelf. Ik wil namelijk misschien zelf een bedrijfje beginnen waar ik onder andere websites (de HTML, CSS en JavaScript files die ik dan voor een klant heb gemaakt) verkopen. Ook wil ook voor het chatprogramma <a href="https://discordapp.com/">Discord</a> bots verkopen. Een bot is in dit geval een soort gebruiker die, in mijn geval, is geprogrammeerd in JavaScript en die dan bijvoorbeeld commando's opvolgd. Je kan er natuurlijk nog veel meer mee, maar dit is waar de meeste mensen een bot voor gebruiken. Ik ben voor dit project dus bezig met een website en een bot. Ik gebruik hiervoor onder andere <a href="https://nodejs.org">Node.js</a>. Dit maakt het mogelijk om serverside JavaScript te runnen. Dit heb je onder andere ook nodig voor de bots, maar ik gebruik het ook voor mijn website, zodat ik de bot en de website met elkaar kan laten communiceren en eventueel ook nog een database aan de bot en de website kan koppelen.
-                </p>
-            </div>
+                    Voordat ik ga vertellen wat er allemaal goed en fout ging wil ik even vertellen dat ik nu een jaar programeer. Ik was begonnen met HTML, CSS en JavaScript (wat ik nu trouwens nog steeds doe), waardoor ik dit nu al best redelijk kan (vind ik dan). Ik ben op dit moment bezig met een redelijk groot project, al zeg ik het zelf. Ik wil namelijk misschien zelf een bedrijfje beginnen waar ik onder andere websites (de HTML, CSS en JavaScript files die ik dan voor een klant heb gemaakt) verkopen. Ook wil ook voor het chatprogramma <a target="_blank" href="https://discordapp.com/">Discord</a> bots verkopen. Een bot is in dit geval een soort gebruiker die, in mijn geval, is geprogrammeerd in JavaScript en die dan bijvoorbeeld commando's opvolgd. Je kan er natuurlijk nog veel meer mee, maar dit is waar de meeste mensen een bot voor gebruiken. Ik ben voor dit project dus bezig met een website en een bot. Ik gebruik hiervoor onder andere <a target="_blank" href="https://nodejs.org">Node.js</a>. Dit maakt het mogelijk om serverside JavaScript te runnen. Dit heb je onder andere ook nodig voor de bots, maar ik gebruik het ook voor mijn website, zodat ik de bot en de website met elkaar kan laten communiceren en eventueel ook nog een database aan de bot en de website kan koppelen.
 
-            <div class="image right">
-                <span>Dit is wat van de code van de bot (links) en de website (rechts).</span>
-                <img src="./img/code-project.png" alt="Dit is wat van de code van de bot en de website" onclick="viewImage('./img/code-project.png', 'Dit is wat van de code van de bot (links) en de website (rechts).')">
-            </div>
+                    <div class="image right">
+                        <span>Dit is wat van de code van de bot (links) en de website (rechts).</span>
+                        <img src="./img/code-project.png" alt="Dit is wat van de code van de bot en de website" onclick="viewImage('./img/code-project.png', 'Dit is wat van de code van de bot (links) en de website (rechts).')">
+                    </div>
 
-            <div class="text">
-                <p>
-                    <!-- TODO: npm, discord.js, enz -->
+                    Node.js maakt het mogelijk om gebruik te maken van "extensies". Extensies zijn dingen die andere gebruikers hebben gemaakt om bepaalde dingen makkelijker te maken. Als iets bijvoorbeeld normaal heel uitgebrijd zou zijn, maar iemand heeft er een extentie voor geschreven om het makkelijker te maken, kan je die downloaden en toevoegen aan je project door middel van <a target="_blank" href="https://www.npmjs.com/">npm</a>. Npm is een programma dat met Node.js wordt meege&iuml;nstalleerd en waarmee je makkelijk extensies kan installeren. Zo gebruik ik voor de bot een extentie genaamd <a target="_blank" href="https://discord.js.org">discord.js</a>. Als je een bot zou schrijven zonder extentie dan zou je allemaal calls naar de <a target="_blank" href="https://discordapp.com/developers/docs/">Discord API</a> moeten maken, maar ik ben daar eerlijk gezecht te lui voor, dus ik gebruik een extentie. Discord.js maakt voor jou alle calls naar de API, terwijl je zelf alleen maar 1 functie callt. Een goed voorbeeld hiervan staat hieronder:
+
+                    <pre class="prettyprint lang-js linenums">if (!message.member.roles.has(adminRole))
+    if (notAllowed.some(word => message.content.includes(word))) <span class="highlight">message.delete()</span></pre>
+
+                    Dit stukje komt uit de foto hierboven (lijn 289&amp;299). Het stukje <code class="prettyprint">message.delete()</code> zou, als ik geen extentie had gebruikt, een heel stuk meer code zijn geweest, alleen om een berichtje te verwijderen. Ook dit is een reden waarom ik extensies gebruik, ze maken dingen 10x makkelijker.
                 </p>
             </div>
         </div>
@@ -89,6 +90,7 @@
         <div class="top">
             <div class="container">
                 <div class="info">
+                    <!-- TODO: misschien aanpassen -->
                     <ul>
                         <li><a class="selected" href="./home.html">Home</a></li>
                         <li><a href="./html.html">HyperText Markup Language</a></li>
@@ -117,6 +119,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=sunburst"></script>
     <script src="./main.js"></script>
 </body>
 </html>
