@@ -27,6 +27,11 @@ code {
     font-family: 'Fira Mono', monospace;
 }
 
+pre.prettyprint {
+    width: calc(100% - 2 * (1em)) !important;
+    margin: 5.em auto !important;
+}
+
 code {
     padding: 2px 5px;
 }
@@ -490,8 +495,32 @@ div.container {
     }
 }
 
-div.text:not(:first-of-type) {
-    margin-top: 25px;
+div.title {
+    width: 97%;
+    margin: .5em auto;
+    border-bottom: 4px solid #5083e8;
+}
+
+div.title h1 {
+    margin: 0 25px;
+}
+
+div.text:not(:last-of-type) {
+    margin-bottom: 25px;
+}
+
+div.text ul {
+    display: block;
+    list-style-type: disc;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 40px;
+}
+
+div.text li {
+    display: list-item;
 }
 
 a,
@@ -515,12 +544,12 @@ div.image {
 div.image,
 div.image.left {
     float: left;
-    margin: 0 5px 0 0;
+    margin: 0 10px 0 0;
 }
 
 div.image.right {
     float: right;
-    margin: 0 0 0 5px;
+    margin: 0 0 0 10px;
 }
 
 div.image > span {

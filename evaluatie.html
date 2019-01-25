@@ -80,8 +80,49 @@
                     <pre class="prettyprint lang-js linenums">if (!message.member.roles.has(adminRole))
     if (notAllowed.some(word => message.content.includes(word))) <span class="highlight">message.delete()</span></pre>
 
-                    Dit stukje komt uit de foto hierboven (lijn 289&amp;299). Het stukje <code class="prettyprint">message.delete()</code> zou, als ik geen extentie had gebruikt, een heel stuk meer code zijn geweest, alleen om een berichtje te verwijderen. Ook dit is een reden waarom ik extensies gebruik, ze maken dingen 10x makkelijker.
+                    Dit stukje komt uit de foto hierboven (lijn 289 &amp; 299 links). Het stukje <code class="prettyprint">message.delete()</code> zou, als ik geen extentie had gebruikt, een heel stuk meer code zijn geweest, alleen om een berichtje te verwijderen. Ook dit is een reden waarom ik extensies gebruik, ze maken dingen 10x makkelijker.
                 </p>
+            </div>
+
+            <div class="title">
+                <h1>Evaluatie</h1>
+            </div>
+
+            <div class="image">
+                <span class="right">Een header met dropdown menuutjes.</span>
+                <img src="./img/header.gif" alt="Een header met dropdown menuutjes." onclick="viewImage('./img/header.gif', 'Een header met dropdown menuutjes.')">
+            </div>
+
+            <div class="text">
+                Het ging eigenlijk best goed. Ik begon, zoals ik altijd doe, met de header. Ik heb standaard 2 headers waar ik uit kies om te maken. Deze die ik op deze website heb gedaan (header zonder dropdown menuutjes en bewegende balkjes als je over een link gaat) of een header met dropdown menuutjes maar zonder fancy balkjes (zie plaatje). Daarna heb ik er voor gekozen om de header onder de landing-page (de grote foto die je ziet wanneer je op de pagina komt) te zetten en hem later bovenaan de pagina vast te zetten. Wat ik soms ook doe is met een erg grote header beginnen en dan terwijl je scrollt hem kleiner maken. Na de header heb ik het menu gemaakt voor mobiele gebruikers (voor als je het nog niet wist, de website is responsive :D). Hier begon ik een klein probleempje te krijgen. Normaal doe ik het dat ik het menu heb en een checkbox linksboven het scherm uit het zicht. Ik heb dan in de header een icoontje voor het menu en in het menu zelf een sluit icoontje. Die icoontjes stop ik dan in <code class="prettyprint">&lt;label for="id-van-checkbox"&gt; ... &lt;/label&gt;</code> wat er voor zorgt dat wanneer je op &eacute;&eacute;n van die icoontjes klikt, en dus op de label, dat je de checkbox afvinkt of weer wegvinkt. In css heb je voor een checkbox het pseudo class <code class="prettyprint lang-css">checkbox:checked</code> wat ik dus gebruik om te kijken of het menu zichtbaar zou moeten zijn. Als hij dus is afgevinkt dan laat ik het menu van rechts inschuiven, is hij niet meer afgevinkt, dan schijf ik het menu weer weg. Eerst werkte dit gewoon, maar toen ik wat meer dingen had toegevoegd aan de website kwam het menu opeens niet meer tevoorschijn. Ik heb hier nog een tijdje mee lopen hannessen en heb het uiteindelijk maar met JavaScript gedaan. 
+            </div>
+
+            <div class="title">
+                <h1>Header</h1>
+            </div>
+
+            <div class="image right">
+                <span class="right">Support table van <b>position: sticky</b>.</span>
+                <img src="./img/support-sticky.png" alt="Support table van position: sticky." onclick="viewImage('./img/support-sticky.png', 'Support table van <b>position: sticky</b>.')">
+            </div>
+
+            <div class="text">
+                <p>
+                    Zoals ik al had gezegt. Voor de header had ik er voor gekozen om hem stiky te maken. Zoals je in de support table kan zien (zie plaatje) supporten alle goede browsers position: sticky, maar toen ik de header dat had gegeven in de css, pleef hij niet "plakken". Ik vond dit heel raar en raakte er erg gefrustreerd door en heb er uiteindelijk ook nog een tijdje dingen geprobeerd om het op te lossen, maar dat is uiteindelijk niet gelukt, dus toen hebben we het maar met JavaScript gedaan. Een paar redenen waarom ik het liever niet met JavaScript doe:
+
+                    <ul>
+                        <li>Wanneer de grote van het scherm wordt aangepast is de <code class="prettyprint lang-js">header.offsetTop</code> niet meer correct, omdat de grote van het scherm word aangepast, maar daarmee dus ook de grote van de landing-page.</li>
+                        <li>Wanneer je van groot scherm naar telefoon switcht (via chrome dev tools zit er linksboven een knopje daarvoor) en vice versa dan kan het zijn dat de header bovenaan vast blijft zitten in plaats van wanneer de landing-page komt los te gaan.</li>
+                    </ul>
+                </p>
+            </div>
+
+            <div class="title">
+                <h1>Footer</h1>
+            </div>
+
+            <div class="text">
+                Na de header ging ik aan de footer werken. Ook deze is gewoon een standaard footer die ik altijd maak. Helemaal onderaan een iets donkerder balkje met de copyright en naam en bovenaan twee vakjes. Rechts, of beneden op de telefoon, waar je me nog meer kan vinden (sociale media en dergelijke) en links, of bovenaan op de telefoon, heb ik in dit geval voor gekozen om daar nog een keer linkjes naar alle paginas neer te zetten. <!-- icoontjes van fontawesome.com -->
             </div>
         </div>
     </main>
@@ -115,7 +156,7 @@
         </div>
 
         <div class="bottom">
-            <span>&copy; Copyright - Made by Joram Buitenhuis</span>
+            <span>&copy; Copyright 2019 - Gemaakt door Joram Buitenhuis</span>
         </div>
     </footer>
 
