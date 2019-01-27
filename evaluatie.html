@@ -77,7 +77,7 @@
 
                     Node.js maakt het mogelijk om gebruik te maken van "extensies". Extensies zijn dingen die andere gebruikers hebben gemaakt om bepaalde dingen makkelijker te maken. Als iets bijvoorbeeld normaal heel uitgebrijd zou zijn, maar iemand heeft er een extentie voor geschreven om het makkelijker te maken, kan je die downloaden en toevoegen aan je project door middel van <a target="_blank" href="https://www.npmjs.com/">npm</a>. Npm is een programma dat met Node.js wordt meege&iuml;nstalleerd en waarmee je makkelijk extensies kan installeren. Zo gebruik ik voor de bot een extentie genaamd <a target="_blank" href="https://discord.js.org">discord.js</a>. Als je een bot zou schrijven zonder extentie dan zou je allemaal calls naar de <a target="_blank" href="https://discordapp.com/developers/docs/">Discord API</a> moeten maken, maar ik ben daar eerlijk gezecht te lui voor, dus ik gebruik een extentie. Discord.js maakt voor jou alle calls naar de API, terwijl je zelf alleen maar 1 functie callt. Een goed voorbeeld hiervan staat hieronder:
 
-                    <pre class="prettyprint lang-js linenums">if (!message.member.roles.has(adminRole))
+                    <pre class="prettyprint lang-js">if (!message.member.roles.has(adminRole))
     if (notAllowed.some(word => message.content.includes(word))) <span class="highlight">message.delete()</span></pre>
 
                     Dit stukje komt uit de foto hierboven (lijn 289 &amp; 299 links). Het stukje <code class="prettyprint">message.delete()</code> zou, als ik geen extentie had gebruikt, een heel stuk meer code zijn geweest, alleen om een berichtje te verwijderen. Ook dit is een reden waarom ik extensies gebruik, ze maken dingen 10x makkelijker.
@@ -108,12 +108,20 @@
 
             <div class="text">
                 <p>
-                    Zoals ik al had gezegt. Voor de header had ik er voor gekozen om hem stiky te maken. Zoals je in de support table kan zien (zie plaatje) supporten alle goede browsers position: sticky, maar toen ik de header dat had gegeven in de css, pleef hij niet "plakken". Ik vond dit heel raar en raakte er erg gefrustreerd door en heb er uiteindelijk ook nog een tijdje dingen geprobeerd om het op te lossen, maar dat is uiteindelijk niet gelukt, dus toen hebben we het maar met JavaScript gedaan. Een paar redenen waarom ik het liever niet met JavaScript doe:
+                    Zoals ik al had gezegt. Voor de header had ik er voor gekozen om hem stiky te maken. Zoals je in de support table kan zien (zie plaatje) supporten alle goede browsers <i>position: sticky</i>, maar toen ik de header dat had gegeven in de css, pleef hij niet "plakken". Ik vond dit heel raar en raakte er erg gefrustreerd door en heb uiteindelijk ook nog een tijdje dingen geprobeerd om het op te lossen, maar dat is uiteindelijk niet gelukt, dus toen heb ik het maar met JavaScript gedaan. Een paar redenen waarom ik het liever niet met JavaScript doe:
 
                     <ul>
-                        <li>Wanneer de grote van het scherm wordt aangepast is de <code class="prettyprint lang-js">header.offsetTop</code> niet meer correct, omdat de grote van het scherm word aangepast, maar daarmee dus ook de grote van de landing-page.</li>
                         <li>Wanneer je van groot scherm naar telefoon switcht (via chrome dev tools zit er linksboven een knopje daarvoor) en vice versa dan kan het zijn dat de header bovenaan vast blijft zitten in plaats van wanneer de landing-page komt los te gaan.</li>
+                        <li>Wanneer de grote van het scherm wordt aangepast is de <code class="prettyprint lang-js">header.offsetTop</code> niet meer correct, omdat de grote van het scherm word aangepast, maar daarmee dus ook de grote van de landing-page.</li>
                     </ul>
+
+                    De eerste is helaas niet op te lossen (denk ik, ik ben er nu in ieder geval nog steeds niet achter), maar de tweede is wel op te lossen. In JavaScript wordt het event <code class="prettyprint lang-js">window.onresize</code> gecallt wanneer de grote van de browser wordt aangepast. In dit event pas ik dus iedere keer wanneer de grote wordt aangepast ook de offsetTop aan.
+
+                    <pre class="prettyprint lang-js linenums:22">/* main.js, lijn 23 - 26 */
+window.onresize = () => {
+    no = n.offsetTop
+    o = window.innerHeight - 80
+}</pre>
                 </p>
             </div>
 

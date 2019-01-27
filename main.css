@@ -6,6 +6,10 @@
         width: 7px;
     }
 
+    html.dark::-webkit-scrollbar {
+        background-color: #252525;
+    }
+
     html::-webkit-scrollbar-button {
         height: 0;
     }
@@ -29,7 +33,23 @@ code {
 
 pre.prettyprint {
     width: calc(100% - 2 * (1em)) !important;
-    margin: 5.em auto !important;
+    margin: .5em auto !important;
+    padding: .25em .75em !important;
+}
+
+pre.prettyprint ol {
+    display: block;
+    list-style-type: decimal;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: -15px;
+    padding-left: 40px;
+}
+
+pre.prettyprint li.L0, pre.prettyprint li.L1, pre.prettyprint li.L2, pre.prettyprint li.L3,
+pre.prettyprint li.L5, pre.prettyprint li.L6, pre.prettyprint li.L7, pre.prettyprint li.L8 {
+    list-style-type: decimal !important;
 }
 
 code {
@@ -52,6 +72,11 @@ body {
     overflow-x: hidden !important;
 }
 
+body.dark {
+    background-color: #252525;
+    color: #ffffff;
+}
+
 .sticky {
     position: fixed;
     top: 0;
@@ -63,6 +88,12 @@ header {
     font-size: 125%;
     background-color: #252525;
     z-index: 100;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
+}
+
+body.dark header {
     -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
     -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
     box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);

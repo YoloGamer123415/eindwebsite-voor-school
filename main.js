@@ -25,12 +25,26 @@
         o = window.innerHeight - 80
     }
 
-    //if (window.location.hash == '#top')
-    //    document.querySelector('main').scrollIntoView({
-    //        behavior: 'auto',
-    //        block: 'start',
-    //        inline: 'nearest'
-    //    })
+    if (location.search.includes('dark')) {
+        document.querySelector('body').classList.add('dark')
+        document.querySelector('html').classList.add('dark')
+    }
+
+    /* deel van https://stackoverflow.com/a/33124043 */
+    if (location.search.startsWith('?')) {
+        document.querySelectorAll('a').forEach(el => {
+            var elUrl = el.getAttribute('href')
+            if (elUrl) {
+                if (elUrl.indexOf('?') > -1)
+                    elUrl += '&'
+                else
+                    elUrl += '?'
+                elUrl += location.search.substr(1)
+                el.setAttribute('href', elUrl)
+            }
+        })
+    }
+    /* einde */
 
     document.getElementById('open').onclick = () => document.querySelector('menu').classList.add('show')
     document.getElementById('close').onclick = () => document.querySelector('menu').classList.remove('show')
@@ -40,10 +54,7 @@
 })()
 
 const viewImage = (imagePath, description, disableScrolling = false) => {
-    /**
-     * Niet van mij:
-     * https://stackoverflow.com/a/4770179
-     */
+    /* https://stackoverflow.com/a/4770179 */
     const k = {37: 1, 38: 1, 39: 1, 40: 1}
 
     function preventDefault(e) {
@@ -77,7 +88,7 @@ const viewImage = (imagePath, description, disableScrolling = false) => {
         window.ontouchmove = null
         document.onkeydown = null
     }
-    /* Rest is weer van mij :) */
+    /* einde */
 
     const v = document.getElementById('viewImage')
     const i = document.getElementById('i')
