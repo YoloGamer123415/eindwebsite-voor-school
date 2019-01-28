@@ -29,6 +29,7 @@
 pre,
 code {
     font-family: 'Fira Mono', monospace;
+    color: #ffffff !important;
 }
 
 pre.prettyprint {
@@ -40,8 +41,6 @@ pre.prettyprint {
 pre.prettyprint ol {
     display: block;
     list-style-type: decimal;
-    margin-top: 1em;
-    margin-bottom: 1em;
     margin-left: 0;
     margin-right: -15px;
     padding-left: 40px;
@@ -94,6 +93,10 @@ header {
 }
 
 body.dark header {
+    background-color: #5083e8;
+}
+
+body.dark header {
     -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
     -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
     box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
@@ -119,6 +122,10 @@ header div.info {
 header div.info a {
     color: #ffffff;
     text-decoration-color: #5083e8;
+}
+
+body.dark header div.info a {
+    text-decoration-color: #252525;
 }
 
 header nav#small div#open {
@@ -234,6 +241,10 @@ header nav#big li a::after {
     bottom: 0;
     background-color: #5083e8;
     transition: width .4s ease;
+}
+
+body.dark header nav#big li a::after {
+    background-color: #134cbe;
 }
 
 header nav#big li a.selected::after,
@@ -498,6 +509,10 @@ div#viewImage span#d {
     font-size: 110%;
 }
 
+body.dark div#viewImage span#d {
+    background-color: #5083e8;
+}
+
 main {
     min-height: 100vh;
 }
@@ -569,7 +584,8 @@ a:visited {
 
 div.image {
     position: relative;
-    width: 100%;
+    max-width: 100%;
+    max-height: 750px;
 }
 
 div.image,
@@ -591,6 +607,10 @@ div.image > span {
     width: calc(100% - 2 * (12px));
 }
 
+body.dark div.image > span {
+    background-color: #5083e8;
+}
+
 div.image > span,
 div.image > span.bottom {
     bottom: 0;
@@ -605,7 +625,8 @@ div.image > span.top {
 }
 
 div.image img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 500px;
     border-radius: 5px;
     cursor: zoom-in;
     cursor: -webkit-zoom-in;
@@ -618,6 +639,7 @@ main.adjust {
 @media only screen and (min-width: 900px) {
     div.image {
         max-width: 65%;
+        max-height: 500px;
     }
 
     div.image > span {

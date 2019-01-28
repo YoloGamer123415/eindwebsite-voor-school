@@ -1,4 +1,4 @@
-(function(){
+(() => {
     const n = document.querySelector('header')
     var no = n.offsetTop
     var o = window.innerHeight - 80
@@ -33,14 +33,16 @@
     /* deel van https://stackoverflow.com/a/33124043 */
     if (location.search.startsWith('?')) {
         document.querySelectorAll('a').forEach(el => {
-            var elUrl = el.getAttribute('href')
-            if (elUrl) {
-                if (elUrl.indexOf('?') > -1)
-                    elUrl += '&'
-                else
-                    elUrl += '?'
-                elUrl += location.search.substr(1)
-                el.setAttribute('href', elUrl)
+            if (!el.classList.contains('not')) {
+                var elUrl = el.getAttribute('href')
+                if (elUrl) {
+                    if (elUrl.indexOf('?') > -1)
+                        elUrl += '&'
+                    else
+                        elUrl += '?'
+                    elUrl += location.search.substr(1)
+                    el.setAttribute('href', elUrl)
+                }
             }
         })
     }
