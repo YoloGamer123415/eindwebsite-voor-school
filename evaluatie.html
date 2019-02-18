@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./main.css">
     <link rel="stylesheet" href="./evaluatie.css">
-    <title>Evaluatie - Eind opdracht school</title>
+    <title>Evaluatie - Eindopdracht school</title>
 </head>
 <body>
     <div class="landing-page">
@@ -66,23 +66,7 @@
 
     <main>
         <div class="container">
-            <div class="text">
-                <p>
-                    Voordat ik ga vertellen wat er allemaal goed en fout ging wil ik even vertellen dat ik nu een jaar programeer. Ik was begonnen met HTML, CSS en JavaScript (wat ik nu trouwens nog steeds doe), waardoor ik dit nu al best redelijk kan (vind ik dan). Ik ben op dit moment bezig met een redelijk groot project, al zeg ik het zelf. Ik wil namelijk misschien zelf een bedrijfje beginnen waar ik onder andere websites (de HTML, CSS en JavaScript files die ik dan voor een klant heb gemaakt) verkopen. Ook wil ook voor het chatprogramma <a class="not" target="_blank" href="https://discordapp.com/">Discord</a> bots verkopen. Een bot is in dit geval een soort gebruiker die, in mijn geval, is geprogrammeerd in JavaScript en die dan bijvoorbeeld commando's opvolgd. Je kan er natuurlijk nog veel meer mee, maar dit is waar de meeste mensen een bot voor gebruiken. Ik ben voor dit project dus bezig met een website en een bot. Ik gebruik hiervoor onder andere <a class="not" target="_blank" href="https://nodejs.org">Node.js</a>. Dit maakt het mogelijk om serverside JavaScript te runnen. Dit heb je onder andere ook nodig voor de bots, maar ik gebruik het ook voor mijn website, zodat ik de bot en de website met elkaar kan laten communiceren en eventueel ook nog een database aan de bot en de website kan koppelen.
-
-                    <div class="image right">
-                        <span>Dit is wat van de code van de bot (links) en de website (rechts).</span>
-                        <img src="./img/code-project.png" alt="Dit is wat van de code van de bot en de website" onclick="viewImage('./img/code-project.png', 'Dit is wat van de code van de bot (links) en de website (rechts).')">
-                    </div>
-
-                    Node.js maakt het mogelijk om gebruik te maken van "extensies". Extensies zijn dingen die andere gebruikers hebben gemaakt om bepaalde dingen makkelijker te maken. Als iets bijvoorbeeld normaal heel uitgebrijd zou zijn, maar iemand heeft er een extentie voor geschreven om het makkelijker te maken, kan je die downloaden en toevoegen aan je project door middel van <a class="not" target="_blank" href="https://www.npmjs.com/">npm</a>. Npm is een programma dat met Node.js wordt meege&iuml;nstalleerd en waarmee je makkelijk extensies kan installeren. Zo gebruik ik voor de bot een extentie genaamd <a class="not" target="_blank" href="https://discord.js.org">discord.js</a>. Als je een bot zou schrijven zonder extentie dan zou je allemaal calls naar de <a class="not" target="_blank" href="https://discordapp.com/developers/docs/">Discord API</a> moeten maken, maar ik ben daar eerlijk gezecht te lui voor, dus ik gebruik een extentie. Discord.js maakt voor jou alle calls naar de API, terwijl je zelf alleen maar 1 functie callt. Een goed voorbeeld hiervan staat hieronder:
-
-                    <pre class="prettyprint lang-js">if (!message.member.roles.has(adminRole))
-    if (notAllowed.some(word => message.content.includes(word))) <span class="highlight">message.delete()</span></pre>
-
-                    Dit stukje komt uit de foto hierboven (lijn 289 &amp; 299 links). Het stukje <code class="prettyprint">message.delete()</code> zou, als ik geen extentie had gebruikt, een heel stuk meer code zijn geweest, alleen om een berichtje te verwijderen. Ook dit is een reden waarom ik extensies gebruik, ze maken dingen 10x makkelijker.
-                </p>
-            </div>
+            
 
             <div class="title">
                 <h1>Evaluatie</h1>
@@ -140,6 +124,53 @@ window.onresize = () => {
             <div class="text">
                 Na de footer bedacht ik dat het misschien wel leuk zou zijn om een dark theme te hebben aangezien ik niet zonder kan, dus ik heb een dark theme toegevoegd. Wanneer je achter de url <code class="prettyprint"><span class="nocode">?dark</span></code> toevoegd dan zou de dark theme aan moeten gaan. Dit geld trouwens voor alle pagina's.
             </div>
+
+            <div class="title">
+                <h1>Tekst</h1>
+            </div>
+
+            <div class="text">
+                Omdat ik zelf niet echt veel wist over HTML, css en JavaScript heb ik eigenlijk de Wikipedia pagina's gekopieerd en weer geplakt op mijn website. Ik weet niet of dit mocht, maar ik heb het toch wel gedaan, want ik heb wel graag wat op mijn website staan qua informatie. Ik heb trouwens de code-blokjes op deze pagina niet zelf gemaakt. Dit is een JavaScript library genaamt <a class="not" href="https://github.com/google/code-prettify" target="_blank">code-prettify</a> gemaakt door Google.
+            </div>
+
+            <div class="title">
+                <h1>Plaatjes</h1>
+            </div>
+
+            <div class="text">
+                <p>
+                    Zoals je misschien al had gezien hebben de plaatjes een klein balkje met een korte omschrijving bij zich staan en als je op het plaatje klikt wordt hij vergroot. Dit is iets waar ik wel even mee bezig ben geweest omdat ik het en makkelijk voor mezelf wilde maken en omdat het niet deed wat ik wilde. Om een plaatje op de pagina te krijgen moet ik op de volgende manier de HTML schrijven:
+
+                    <pre class="prettyprint">&lt;div class="image">
+    &lt;span>De beschrijving van het plaatje.&lt;/span>
+    &lt;img src="link" alt="De beschrijving van het plaatje" onclick="viewImage('link', 'De beschrijving van het plaatje.')" />
+&lt;/div></pre>
+                    
+                    Het plaatje staat standaart links in de container. Als ik de <code class="prettyprint">&lt;div class="image">&lt;/div></code> nog een class "right" geef, dan gaat het plaatje rechts in de container staan. Het zelfde geld voor de beschrijving van het plaatje (<code class="prettyprint">&lt;span> ... &lt;/span></code>). Hij staat standaard linksonderaan, maar door de classes "right" en/ of "top" toe te voegen, kan ik hem ook bovenin of rechts neerzetten.<br>
+                    <br>
+                    Zoals je ziet heeft de img ook een <code class="prettyprint lang-html">onclick="viewImage( ... )"</code>. Dit callt de functie "viewImage" wanneer er op het plaatje wordt geklikt. Dit zorgt er dan voor dat het plaatje groter wordt weer gegeven. Als je het werkent wilt zien dan kan je op een van plaatjes wat verder naar boven klikken.
+                </p>
+            </div>
+
+            <div class="title">
+                <h1>Landing-page plaatjes</h1>
+            </div>
+
+            <div class="text">
+                <p>
+                    De plaatjes die je ziet op de landing-page's heb ik allemaal zelf gemaakt, behalve de foto op de evaluatie pagina, want die heb ik van het internet gepakt. Ik heb de foto's iets laten bewerken door een vriend om ze wat donkerder te maken. De foto op de home pagina is trouwens niet van deze website, maar van de bot die ik voor mijn eigen bedrijfje had gemaakt, wat weer door een minifier is getrokken.
+                </p>
+            </div>
+
+            <div class="title">
+                <h1>Uiteindelijk</h1>
+            </div>
+
+            <div class="text">
+                <p>
+                    Er zijn nog wat kleinere dingetjes waar ik over zou kunnen vertellen wat er goed en/ of fout ging, maar dat wordt dan te veel om hier neer te zetten, dus ik had besloten om alleen de grootste en meest opvallende dingen hier neer te zetten. Een paar voorbeeldjes daarvan zijn de scrollbar en de "weer omhoog"-knop, maar dat zijn kleine dingetjes vergeleken met bijvoorbeeld de header en de footer.
+                </p>
+            </div>
         </div>
     </main>
 
@@ -147,7 +178,6 @@ window.onresize = () => {
         <div class="top">
             <div class="container">
                 <div class="info">
-                    <!-- TODO: misschien aanpassen -->
                     <ul>
                         <li><a class="selected" href="./home.html">Home</a></li>
                         <li><a href="./html.html">HyperText Markup Language</a></li>
@@ -158,7 +188,7 @@ window.onresize = () => {
                 </div>
 
                 <div class="social">
-                    <h1>Waar je me ook kunt vinden</h1>
+                    <h2>Waar je me ook kunt vinden</h2> 
 
                     <div>
                         <a class="not" target="_blank" href="https://github.com/YoloGamer123415"><svg aria-hidden="true" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a>

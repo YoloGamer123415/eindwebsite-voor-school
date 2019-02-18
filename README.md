@@ -1,1 +1,1 @@
-# Eindwebsite voor school
+# eindwebsite-voor-school

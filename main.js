@@ -46,7 +46,6 @@
             }
         })
     }
-    /* einde */
 
     document.getElementById('open').onclick = () => document.querySelector('menu').classList.add('show')
     document.getElementById('close').onclick = () => document.querySelector('menu').classList.remove('show')
@@ -55,43 +54,7 @@
     document.getElementById('close-dc').onclick = e => { e.preventDefault();document.getElementById('add-discord').style.display='none' }
 })()
 
-const viewImage = (imagePath, description, disableScrolling = false) => {
-    /* https://stackoverflow.com/a/4770179 */
-    const k = {37: 1, 38: 1, 39: 1, 40: 1}
-
-    function preventDefault(e) {
-        e = e || window.event
-        if (e.preventDefault)
-            e.preventDefault()
-        e.returnValue = false
-    }
-
-    function preventDefaultForScrollKeys(e) {
-        if (k[e.keyCode]) {
-            preventDefault(e)
-            return false
-        }
-    }
-
-    function disableScroll() {
-        if (window.addEventListener)
-            window.addEventListener('DOMMouseScroll', preventDefault, false)
-        window.onwheel = preventDefault
-        window.onmousewheel = document.onmousewheel = preventDefault
-        window.ontouchmove = preventDefault
-        document.onkeydown = preventDefaultForScrollKeys
-    }
-
-    function enableScroll() {
-        if (window.removeEventListener)
-            window.removeEventListener('DOMMouseScroll', preventDefault, false)
-        window.onmousewheel = document.onmousewheel = null
-        window.onwheel = null
-        window.ontouchmove = null
-        document.onkeydown = null
-    }
-    /* einde */
-
+const viewImage = (imagePath, description) => {
     const v = document.getElementById('viewImage')
     const i = document.getElementById('i')
     const d = document.getElementById('d')
@@ -102,11 +65,8 @@ const viewImage = (imagePath, description, disableScrolling = false) => {
         .replace('<script', '&lt;nein')
         .replace('</script', '&lt;/nein')}</div>`
     v.style.display = 'grid'
-    if (disableScrolling)
-        disableScroll()
     c.onclick = e => {
         e.preventDefault()
         document.getElementById('viewImage').style.display = 'none'
-        enableScroll()
     }
 }

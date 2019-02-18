@@ -513,10 +513,6 @@ body.dark div#viewImage span#d {
     background-color: #5083e8;
 }
 
-main {
-    min-height: 100vh;
-}
-
 div.container {
     width: calc(100% - 2 * (7.5px));
     margin: 0 auto;
@@ -553,6 +549,10 @@ div.title h1 {
 
 div.text:not(:last-of-type) {
     margin-bottom: 25px;
+}
+
+div.text h3.sub {
+    margin: 15px 0 3.5px 5px;
 }
 
 div.text ul {
@@ -630,6 +630,9 @@ div.image img {
     border-radius: 5px;
     cursor: zoom-in;
     cursor: -webkit-zoom-in;
+    -webkit-box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.25);
+    box-shadow: 1px 3px 5px 0px rgba(0,0,0,0.25);
 }
 
 main.adjust {
@@ -745,7 +748,7 @@ footer div.social div a:not(:first-of-type) {
 }
 
 footer div.social div a svg {
-    height: 60px;
+    height: 50px;
     color: #ffffff;
     transition: color .3s ease;
 }

@@ -1,9 +1,4 @@
-/*div.landing-page {
-    background-image: url(); FIXME: foto van errors
-}*/
-
-span.highlight {
-    background-color: #0b3485;
-    padding: 1px 4px;
-    border-radius: 5px;
+div.landing-page {
+    background-image: url(./img/evaluatie_background.png);
+    background-position: left;
 }
