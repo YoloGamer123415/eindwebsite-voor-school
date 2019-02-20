@@ -292,7 +292,7 @@ div#scrolltop {
     transition:
         transform .3s ease,
         box-shadow .3s ease;
-    z-index: 1000;
+    z-index: 99;
 }
 
 @media only screen and (min-width: 900px) {
@@ -588,17 +588,6 @@ div.image {
     max-height: 750px;
 }
 
-div.image,
-div.image.left {
-    float: left;
-    margin: 0 10px 0 0;
-}
-
-div.image.right {
-    float: right;
-    margin: 0 0 0 10px;
-}
-
 div.image > span {
     position: absolute;
     background-color: #252525;
@@ -643,6 +632,17 @@ main.adjust {
     div.image {
         max-width: 65%;
         max-height: 500px;
+    }
+
+    div.image,
+    div.image.left {
+        float: left;
+        margin: 0 10px 0 5px;
+    }
+    
+    div.image.right {
+        float: right;
+        margin: 0 5px 0 10px;
     }
 
     div.image > span {
